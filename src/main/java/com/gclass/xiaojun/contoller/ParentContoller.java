@@ -19,8 +19,7 @@ public class ParentContoller {
 	
 	@RequestMapping(value="/parents", method=RequestMethod.GET)
 	public List<Parent> findParents(Integer start,Integer limit,String query){
-		List<Parent> p = parentDao.findParents(start,limit,query);
-		return p;
+		return parentDao.findParents(start,limit,query);
 	}
 	
 	@RequestMapping(value="/count/parents", method=RequestMethod.GET)
