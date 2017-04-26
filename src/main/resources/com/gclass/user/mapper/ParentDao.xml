@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gclass.xiaojun.dao.ParentDao">
+
+	<select id="findParents" resultType="Parent">
+		select id,name,phone,adders from parent_t where is_deleted = 0
+		<if test="query !=null and query !=''">
+			and name like concat("%", #{query}, "%")
+		</if>
+		LIMIT #{start}, #{limit}
+	</select>
+	
+	<select id="countParents" resultType="java.lang.Integer">
+		select count(1) from parent_t where is_deleted = 0
+		 <if test="query !=null and query !=''">
+			and name like concat("%", #{query}, "%")
+		</if>
+	</select>
+	
+</mapper>
