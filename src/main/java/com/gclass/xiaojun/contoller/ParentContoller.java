@@ -25,6 +25,7 @@ public class ParentContoller {
 	@RequestMapping(value="/count/parents", method=RequestMethod.GET)
 	public Integer countParents(String query){
 		return parentDao.countParents(query);
+//		System.out.println();
 	}
 	
 }
